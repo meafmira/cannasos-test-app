@@ -30,6 +30,7 @@ gulp.task('browserify', function() {
       .bundle()
       .on('error', handleError)
       .pipe(source('app.js'))
+      .pipe($.ngAnnotate())
       .pipe(gulp.dest('./.tmp/scripts/'))
       .on('end', function () { console.log('Bundle complete') })
   };
